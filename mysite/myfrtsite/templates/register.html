@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会员注册页面</title>
+    <style>
+        .register {
+            width: 400px;
+            border: 1px solid #ccc;
+            margin: 30px auto;
+            text-align: center;
+        }
+ 
+        form {
+            width: 300px;
+            text-align: right;
+        }
+ 
+        input {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+ 
+<body>
+    <div class="register">
+        <h1>会员注册页面</h1>
+        <form action="/save_data/" method="post">
+            {% csrf_token %}
+            用户名：
+            <input type="text" name="username" id=""><br>
+            密 码：
+            <input type="text" name="password" id=""><br>
+            <input type="submit" value="注册">
+        </form>
+        <a href="/login/" class="text-success">
+            <ins>已有帐号，登录</ins>
+        </a>
+        <a href="/index/" class="text-success">
+            <ins>返回首页</ins>
+        </a>
+     
+    </div>
+  
+ 
+</body>
+ 
+</html>
