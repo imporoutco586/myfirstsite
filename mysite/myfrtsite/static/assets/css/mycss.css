@@ -1,0 +1,17 @@
+.avatar-img {
+    max-width: 500px; 
+  }
+
+
+.intro-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 400px;
+    height: 200px;
+
+    white-space: pre-wrap; 
+    text-align: left;
+    align-items: flex-start;
+  }

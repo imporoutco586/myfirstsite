@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户列表页</title>
+</head>
+ 
+<body>
+    <div style="color:red">展示用户列表</div>
+    {{user_list}}
+    <ul>
+        {% for user in user_list %}
+        <li>
+            <a href="detail/{{user.id}}" > {{user.name}} </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/logout/" class="text-success">
+    <ins>登出</ins>
+    </a>
+</body>
+ 
+</html>

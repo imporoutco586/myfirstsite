@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-
+from celery.schedules import crontab
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'django_celery_beat',
     'myfrtsite',
     
 ]
@@ -98,7 +99,7 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": "django.contrib.auth.password_validarint()tion.NumericPasswordValidator",
     },
 ]
 
@@ -106,13 +107,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = "zh-Hans"
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = "UTC"
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -127,10 +128,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 
-ROKER_URL = 'redis://:redispassword@127.0.0.1:6379/0'
+ROKER_URL = 'redis://:12345678@127.0.0.1:6379/0'
 
 # BACKEND配置，使用redis
-CELERY_RESULT_BACKEND = 'redis://:redispassword@127.0.0.1:6379/1'
+CELERY_RESULT_BACKEND = 'redis://:12345678@127.0.0.1:6379/1'
 
 
 CELERY_ACCEPT_CONTENT=['json']
@@ -143,3 +144,30 @@ CELERY_TASK_RESULT_EXPIRES = 60 * 60 * 24
 
 # 时区配置
 CELERY_TIMEZONE = 'Asia/Shanghai'
+
+# CELERYBEAT_SCHEDULE = {
+#     'every_5_seconds': {
+#         # 任务路径
+#         'task': 'taskapp.tasks.scheduletask1',
+#         # 每5秒执行一次
+#         'schedule': 5,
+#         'args': ()
+#     },
+#     'every_10_seconds': {
+#         # 任务路径
+#         'task': 'taskapp.tasks.task1',
+#         # 每10秒执行一次,task1的参数是5
+#         'schedule': 10,
+#         'args': ([5])
+#     }
+# }
+
+CELERYBEAT_SCHEDULER = 'django_celery_beat.schedulers.DatabaseScheduler' 
+
+STATICFILES_DIRS = [
+    os.path.join('/home/zfym/Desktop/myfirstsite/mysite/myfrtsite',"static")
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+
+MEDIA_URL = '/media/'

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<form action="/runsum/" method="post">
+  {% csrf_token %}
+  <input type="text" name="x">
+  <input type="text" name="y">
+  <button type="submit">提交</button>
+</form>
+
+
+<body>
+  <div style="color:red">record list</div>
+
+  <ul>
+      {% for record in record_list %}
+      <li>
+        <p>
+          {{ record.x }} + {{ record.y }} = {{ record.result }}
+          ({{ record.timestamp }})  
+        </p>
+      </li>
+      {% endfor %}
+  </ul>
+</body>
+
+<a href="/tasklist/" class="text-success">
+  <ins>return</ins>
+</a>

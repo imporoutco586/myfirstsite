@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>workflowlist</title>
+  <!-- loader-->
+  <link href="/static/assets/css/pace.min.css" rel="stylesheet"/>
+  <script src="/static/assets/js/pace.min.js"></script>
+  <!--favicon-->
+  <link rel="icon" href="/static/assets/images/logo.ico" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="/static/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
+  <!-- simplebar CSS-->
+  <link href="/static/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+  <!-- Bootstrap core CSS-->
+  <link href="/static/assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href="/static/assets/css/animate.css" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="/static/assets/css/icons.css" rel="stylesheet" type="text/css"/>
+  <!-- Sidebar CSS-->
+  <link href="/static/assets/css/sidebar-menu.css" rel="stylesheet"/>
+  <!-- Custom Style-->
+  <link href="/static/assets/css/app-style.css" rel="stylesheet"/>
+</head>
+
+
+<body class="bg-theme bg-theme1">
+
+  <ul class="sidebar-menu do-nicescrol">
+
+<!-- <form action="/runworkflow/" method="post">
+  {% csrf_token %}
+  <h3 class="text-center">Workflow1 hello Temporal!</h3>
+  <button type="submit">action</button>
+</form> -->
+<li>
+  <a href="/runworkflow/" class="text-success" >
+    <i class="zmdi zmdi-coffee"></i> <span type="submit">workflow1 hello Temporal!</span>
+  </a>
+
+</li>
+
+
+  <!-- <li>
+  <form action="/runworkflow/" method="post" style="display: inline-block;
+  padding: 5px 10px;">
+    {% csrf_token %}
+    
+    <a href="javascript:;" onclick="this.parentNode.submit();" class="text-success">
+      <i class="zmdi zmdi-coffee"></i>
+      <span>workflow1 hello Temporal!</span>
+    </a>
+  
+  </form>
+
+</li> -->
+
+  <li>
+    <a href="/workflowui/" target="_blank" class="text-success">
+      <i class="zmdi zmdi-account-circle"></i><span>workflowui</span>
+  </a>
+  </li>
+
+
+
+  <li>
+  <a href="/tasklist/" class="text-success">
+    <i class="zmdi zmdi-invert-colors"></i> <span>return</span>
+  </a>
+  </li>
+
+</ul>
+</body>
+

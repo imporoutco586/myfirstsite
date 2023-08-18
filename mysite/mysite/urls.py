@@ -25,7 +25,9 @@ urlpatterns = [
     path('myfrtsite/article_detail/<int:article_id>', views.article_detail,name="article_detail"),
     path('', include('myfrtsite.urls')),
     # url(r'^register', register),
-    url(r'^save_data/', save_data)
+    url(r'^save_data/', save_data),
+
+    path('task/',include('myfrtsite.urls'))
    
    
 ]
