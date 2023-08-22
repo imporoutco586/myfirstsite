@@ -27,6 +27,8 @@ urlpatterns = [
     url('profile/',views.profile_edit,name='profile'),
     re_path(r'media/(?P<path>.*)$',serve,{'document_root':settings.MEDIA_ROOT}),
     url(r'^runworkflow/', runworkflow),
+    url(r'^runworkflow5/', runworkflow5),
+    url(r'^runworker1/', runworker1),
     url(r'^workflowui/', workflowui),
     url(r'uploadFile/',upload_file),
     url(r'runfile/',run_file),

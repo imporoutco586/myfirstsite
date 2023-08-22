@@ -29,7 +29,7 @@ def sum(x, y):
 @shared_task
 def runworkflow():
     now = datetime.datetime.now()
-    result = subprocess.run(['python3','/home/zfym/Desktop/myfirstsite/ts/test/run_wokerflow2.py']
+    result = subprocess.run(['python3','/home/zky/Desktop/myfirstsite/ts/test/run_wokerflow2.py']
                             ,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     print(result.stdout)
     logger.info('this is runworkflow result'+now.strftime("%Y-%m-%d %H:%M:%S"))
@@ -40,10 +40,34 @@ def runworkflow():
 @shared_task
 def runfile(file):
     now = datetime.datetime.now()
-    string = os.path.join('/home/zfym/Desktop/myfirstsite/ts/test/',file)
+    string = os.path.join('/home/zky/Desktop/myfirstsite/ts/test/',file)
     print(string)
     result = subprocess.run(['python3',string]
                             ,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     print(result.stdout)
     logger.info('this is runworkflow result'+now.strftime("%Y-%m-%d %H:%M:%S"))
+    return result.stdout
+
+
+
+@shared_task
+def runworker1():
+    now = datetime.datetime.now()
+
+    result = subprocess.Popen(['python3','/home/zky/Desktop/myfirstsite/ts/test/worker/worker2.py']
+                            ,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    print(result.stdout)
+
+    return result.stdout
+
+
+@shared_task
+def runsql(string):
+  
+    params = str(string)
+    print("68,",params)
+    result = subprocess.run(['python3','/home/zky/Desktop/myfirstsite/ts/test/workflows/workflow51.py'],input=params,encoding='utf8'
+                            ,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    print(result.stdout)
+    
     return result.stdout

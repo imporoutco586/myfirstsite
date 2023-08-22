@@ -21,8 +21,10 @@ def article_detail(request,article_id):
 
 
 def index(request):
-    pass
-    return render(request,"login/index.html")
+    id = request.session['user_id']
+    user = SiteUser.objects.get(id=id)
+    context = {'user':user,'username': user.name,'id':user.id}
+    return render(request,"login/index.html",context=context)
 
 def login(request):
     if request.method=="POST":
@@ -161,6 +163,24 @@ def runworkflow(request):
     print('1',result)
     return render(request, "tasklist/runworkflow.html", context={"result": result})
 
+def runworkflow5(request):
+    if request.method == 'POST':
+        string=request.POST.get("string")
+
+        result = tasks.runsql(string)
+        print('1',result)
+    else:
+        print("no post")
+    return render(request, "tasklist/runworkflow.html", context={"result": result})
+
+
+
+def runworker1(request):
+    result = tasks.runworker1()
+    print('1',result)
+    messages.error(request, 'worker1 start')
+    return render(request, 'tasklist/workflow.html')
+    # return render(request, "tasklist/runworkflow.html", context={"result": result})
 
 def workflowui(request):
     return redirect('http://127.0.0.1:8080/namespaces/default/workflows')
@@ -201,7 +221,7 @@ def upload_file(request):
         myFile =request.FILES.get("myfile", None)    # 获取上传的文件，如果没有文件，则默认为None
         if not myFile:
             return HttpResponse("no files for upload!")
-        destination = open(os.path.join("/home/zfym/Desktop/myfirstsite/mysite/myfrtsite/testfile",myFile.name),'wb+')    # 打开特定的文件进行二进制的写操作
+        destination = open(os.path.join("/home/zky/Desktop/myfirstsite/ts/test/",myFile.name),'wb+')    # 打开特定的文件进行二进制的写操作
         for chunk in myFile.chunks():      # 分块写入文件
             destination.write(chunk)
         destination.close()

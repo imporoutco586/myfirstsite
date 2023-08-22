@@ -47,6 +47,43 @@
 </li>
 
 
+{% comment %} <li>
+  <form onsubmit="event.preventDefault();">
+  <a href="/runworkflow5/" class="text-success" >
+    <i class="zmdi zmdi-coffee"></i> <span >workflow5 find mysql!</span>
+    
+  </a>
+  <form method="POST" action="post">  
+    <input type="text" name="string" placeholder="Enter String">
+    <button type="submit">Submit</button>
+  </form> {% endcomment %}
+
+  {% comment %} <input type="string" name='string' class="form-control input-shadow" placeholder="Enter String">
+    <button type="submit" class="btn btn-light btn-block">Submit</button>
+  <button type="submit" onclick="this.form.submit();"> {% endcomment %}
+{% comment %} </li> {% endcomment %}
+
+</li>
+
+<form class="form-SQL" action="/runworkflow5/" method="post">
+  <i class="zmdi zmdi-coffee"></i> <span >workflow5 find mysql!</span>
+  <input type="text" name="string"  id="string" placeholder="Enter String" autofocus required>
+
+  <button type="submit" >submit</button>
+
+
+</form>
+</li>
+
+
+<li>
+  <a href="/runworker1/" class="text-success" >
+    <i class="zmdi zmdi-coffee"></i> <span >worker1 start!</span>
+  </a>
+
+</li>
+
+
   <!-- <li>
   <form action="/runworkflow/" method="post" style="display: inline-block;
   padding: 5px 10px;">
@@ -60,6 +97,12 @@
   </form>
 
 </li> -->
+
+{% for message in messages %}
+<div class="alert  alert-danger" role="alert">
+  {{ message }}  
+</div>
+{% endfor %}
 
   <li>
     <a href="/workflowui/" target="_blank" class="text-success">

@@ -165,7 +165,7 @@ CELERY_TIMEZONE = 'Asia/Shanghai'
 CELERYBEAT_SCHEDULER = 'django_celery_beat.schedulers.DatabaseScheduler' 
 
 STATICFILES_DIRS = [
-    os.path.join('/home/zfym/Desktop/myfirstsite/mysite/myfrtsite',"static")
+    os.path.join('/home/zky/Desktop/myfirstsite/mysite/myfrtsite',"static")
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
